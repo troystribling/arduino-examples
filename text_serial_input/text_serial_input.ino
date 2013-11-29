@@ -15,15 +15,17 @@ void setup() {
 void loop() {
 	if (Serial.available()) {
 		char ch = Serial.read();
-    Serial.println(ch);
+    Serial.print("Read: ");Serial.println(ch);
     if(index < maxChars && isDigit(ch)) {
       strValue[index++] = ch;
+      Serial.print("adding ch: ");Serial.print(ch);Serial.print(" at index: ");Serial.println(index);
     } else {
       strValue[index] = 0;
+      Serial.print("strValue: "); Serial.println(strValue);
       blinkRate = atoi(strValue);
       index = 0;
+      Serial.print("blinkRate: "); Serial.println(blinkRate);
     }
-    Serial.println(blinkRate);
   }
   blink(blinkRate);
 }
