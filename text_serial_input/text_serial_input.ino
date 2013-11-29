@@ -1,6 +1,7 @@
 // text_serial_input.ino
+// set led blink rate using serial input
 
-const int ledPin      = 13;  // pin the LED is connected to
+const int ledPin      = 13;
 int blinkRate         = 0;
 const int maxChars    = 5;
 int index             = 0;
@@ -8,8 +9,8 @@ int index             = 0;
 char strValue[maxChars + 1];
 
 void setup() {
-	Serial.begin( 9600); 		// Initialize serial port to send and receive at 9600 baud
-	pinMode(ledPin, OUTPUT); 	// set this pin as output
+	Serial.begin( 9600);
+	pinMode(ledPin, OUTPUT);
 }
 
 void loop() {

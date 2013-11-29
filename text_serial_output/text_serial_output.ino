@@ -1,4 +1,5 @@
 // text_serial_output.ino
+// write text through serial port
 
 char chrValue = 65;
 byte byteValue = 65;
