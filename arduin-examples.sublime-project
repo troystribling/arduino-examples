@@ -3,7 +3,7 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "arduino-examples"
+			"path": "/Users/troy/Develop/arduino/arduino-examples"
 		}
 	]
 }
