@@ -1,5 +1,5 @@
-// push_up_push_button_led.ino
-// a pushbutton is used to send a pull up signal through a digital pin to and led also connected to a digital pin
+// pull_down_button_led.ino
+// a pushbutton is used to send a pull down signal through a digital pin to and led also connected to a digital pin
 
 const int ledPin    = 13;
 const int inputPin  = 2;
@@ -12,10 +12,9 @@ void setup() {
 void loop() {
   int val = digitalRead(inputPin);
   if (val == HIGH) {
-    digitalWrite(ledPin, LOW);
-  } else {
     digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
   }
 }
-
 
