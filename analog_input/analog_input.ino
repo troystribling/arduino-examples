@@ -13,11 +13,11 @@ void setup() {
 void loop() {
   int val = analogRead(potPin);
   int percent = map(val, 0, 1023, 0, 100);
-  int delayVal = maxDelay*percent/100;
+  int delayVal = maxDelay*percent/100 ;
   digitalWrite(ledPin, HIGH);
-  delay(delayVal);
+  delay(delayVal + 1);
   digitalWrite(ledPin, LOW);
-  delay(maxDelay - delayVal);
+  delay(maxDelay - delayVal + 1);
   Serial.println(percent);
 }
 
