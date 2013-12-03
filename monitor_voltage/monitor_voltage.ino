@@ -10,7 +10,7 @@ void setup() {
 
 void loop() {
   int val = analogRead(batterPin);
-  float volts = referenceVoltage*(val/1023.0);
+  float volts = (referenceVoltage*val)/1023.0;
   Serial.println(volts);
   delay(2000);
 }
