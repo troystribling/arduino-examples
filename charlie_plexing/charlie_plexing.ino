@@ -18,9 +18,12 @@ void lightLed(int led) {
   int ledPinA = ledPins[indexA];
   int ledPinB = ledPins[indexB];
 
+  // turn off all LEDs not connected to given LED
   for(int i = 0; i < NUMBER_OF_PINS; i++) {
     if (ledPins[i] != ledPinA && ledPins[i] != ledPinB) {
+      // set pinmode to input
       pinMode(ledPins[i], INPUT);
+      // turn off pull-up resistor
       digitalWrite(ledPins[i], LOW);
     }
   }
