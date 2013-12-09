@@ -20,7 +20,7 @@ void setup() {
   }
   setDisplayState(LOW);
   setRowState(currentRow - 1, HIGH);
-  delay(1000);
+  delay(5000);
 }
 
 void setDisplayState(int state) {
@@ -37,14 +37,14 @@ void setRowState(int row, int state) {
 }
 
 void loop() {
-  Serial.print("Turn off row: "); Serial.println(currentRow -1);
+  Serial.print("Turn off row: "); Serial.println(currentRow);
   setRowState(currentRow -1, LOW);
   if (currentRow == NUMBER_OF_ROWS) {
     currentRow = 0;
   }
-  Serial.print("Turn on row: "); Serial.println(currentRow);
+  Serial.print("Turn on row: "); Serial.println(currentRow+1);
   setRowState(currentRow, HIGH);
   currentRow++;
-  delay(1000);
+  delay(5000);
 }
 
