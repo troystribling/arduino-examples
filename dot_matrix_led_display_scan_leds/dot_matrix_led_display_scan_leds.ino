@@ -1,5 +1,5 @@
-// dot_matrix_led_display_flash_led.ino
-// Flash the red/orange leds on the Lite On two color 5x7 LED dot matrix
+// dot_matrix_led_display_scan_leds.ino
+// scan the red/orange leds on the Lite On two color 5x7 LED dot matrix
 // http://www.jameco.com/webapp/wcs/stores/servlet/ProductDisplay?langId=-1&storeId=10001&catalogId=10001&productId=1955159
 
 const int columnPins[] = {2, 3, 4, 5, 6};
@@ -29,25 +29,23 @@ void loop() {
     pixel = 0;
   }
   column = pixel / NUMBER_OF_COLUMNS;
-  row = (pixel - column) / NUMBER_OF_COLUMNS + 1;
-  Serial.print("Pixel: ");Serial.println(pixel);
-  Serial.print("Row: ");Serial.println(row);
-  Serial.print("Column: ");Serial.println(column);
-  for (int i = 0; i < NUMBER_OF_ROWS; i++) {
-    if (i == row) {
-      digitalWrite(rowPins[i], HIGH);
-    } else {
+  row = column % NUMBER_OF_COLUMNS;
+  for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
+    digitalWrite(columnPins[j], LOW);
+    for (int i = 0; i < NUMBER_OF_ROWS; i++) {
+     if (column > j) {
+        digitalWrite(rowPins[i], HIGH);
+      } else if (column == j && row >= i) {
+        digitalWrite(rowPins[i], HIGH);
+      } else {
+        digitalWrite(columnPins[j], LOW);
+      }
+      delayMicroseconds(300);
       digitalWrite(rowPins[i], LOW);
     }
+    digitalWrite(columnPins[j], HIGH);
   }
-  for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
-    if (j == column) {
-      digitalWrite(columnPins[j], LOW);
-    } else {
-      digitalWrite(columnPins[j], HIGH);
-    }
-  }
-  delay(1000);
   pixel++;
 }
+
 
