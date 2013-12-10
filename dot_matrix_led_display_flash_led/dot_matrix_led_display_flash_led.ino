@@ -28,11 +28,10 @@ void loop() {
   if (pixel > NUMBER_OF_ROWS * NUMBER_OF_COLUMNS - 1) {
     pixel = 0;
   }
-  column = pixel / NUMBER_OF_COLUMNS;
-  row = (pixel - column) / NUMBER_OF_COLUMNS + 1;
-  Serial.print("Pixel: ");Serial.println(pixel);
-  Serial.print("Row: ");Serial.println(row);
-  Serial.print("Column: ");Serial.println(column);
+
+  column = pixel % NUMBER_OF_COLUMNS;
+  row = (pixel - column) / NUMBER_OF_COLUMNS;
+
   for (int i = 0; i < NUMBER_OF_ROWS; i++) {
     if (i == row) {
       digitalWrite(rowPins[i], HIGH);
@@ -47,7 +46,8 @@ void loop() {
       digitalWrite(columnPins[j], HIGH);
     }
   }
-  delay(1000);
+
+  delay(100);
   pixel++;
 }
 

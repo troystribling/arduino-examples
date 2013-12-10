@@ -28,8 +28,15 @@ void loop() {
   if (pixel > NUMBER_OF_ROWS * NUMBER_OF_COLUMNS - 1) {
     pixel = 0;
   }
-  column = pixel / NUMBER_OF_COLUMNS;
-  row = column % NUMBER_OF_COLUMNS;
+
+  if (NUMBER_OF_ROWS > NUMBER_OF_COLUMNS) {
+    row = pixel / NUMBER_OF_ROWS;
+    column = row % NUMBER_OF_ROWS;
+  } else {
+    column = pixel / NUMBER_OF_COLUMNS;
+    row = column % NUMBER_OF_COLUMNS;
+  }
+
   for (int j = 0; j < NUMBER_OF_COLUMNS; j++) {
     digitalWrite(columnPins[j], LOW);
     for (int i = 0; i < NUMBER_OF_ROWS; i++) {
