@@ -13,7 +13,6 @@ int column  = 0;
 int row     = 0;
 
 void setup() {
-  Serial.begin(9600);
   for (int i = 0; i < NUMBER_OF_ROWS; i++) {
     pinMode(rowPins[i], OUTPUT);
     digitalWrite(rowPins[i], LOW);
