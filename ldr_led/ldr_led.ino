@@ -9,7 +9,7 @@ const int maxDuration   = 1000;  	// maximum wait between blinks
 
 void setup() {
 	pinMode(ledPin, OUTPUT); 	// enable output on the led pin
-	Serial.begin(9600); 		// initialize Serial
+	Serial.begin(9600); 			// initialize Serial
 }
 
 void loop() {
