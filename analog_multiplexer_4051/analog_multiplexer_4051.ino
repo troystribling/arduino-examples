@@ -44,5 +44,6 @@ void loop() {
   int red = readChannel(redChannel);
   int green = readChannel(greenChannel);
   int blue = readChannel(blueChannel);
+  updateLed(red, green, blue);
 }
 
