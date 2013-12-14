@@ -1,5 +1,5 @@
 // lcd_display_hellow_world.ino
-// test an lcd display
+// test a 16x4 lcd display
 
 #include <LiquidCrystal.h>
 
