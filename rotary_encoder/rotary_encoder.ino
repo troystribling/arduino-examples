@@ -7,7 +7,8 @@ const int encoderStepsPerRevolution   = 30;
 
 int angle             = 0;
 int encoderPos        = 0;
-boolean encoderALast  = LOW;
+boolean encoderALast  = HIGH;
+boolean encoderBLast  = HIGH;
 
 boolean encoderA;
 
@@ -21,17 +22,24 @@ void setup() {
 
 void loop() {
   encoderA = digitalRead(encoderPinA);
-  if (encoderALast == HIGH && encoderA == LOW) {
-    if (digitalRead(encoderPinB) == LOW) {
+  Serial.print("encoderA: ");Serial.println(encoderA);
+  Serial.print("encoderALast: ");Serial.println(encoderALast);
+  if (encoderALast != encoderA) {
+    boolean encoderB = digitalRead(encoderPinB);
+    Serial.print("encoderB: ");Serial.println(encoderB);
+    Serial.print("encoderBLast: ");Serial.println(encoderBLast);
+    if (encoderB == LOW) {
       encoderPos--;
     } else {
       encoderPos++;
     }
+    encoderBLast = encoderB;
+    angle = 360 * (encoderPos % encoderStepsPerRevolution)/encoderStepsPerRevolution;
+    Serial.print("Postion: ");Serial.println(encoderPos);
+    Serial.print("Anglel: ");Serial.println(angle);
+    encoderALast = encoderA;
   }
-  angle = 360 * (encoderPos % encoderStepsPerRevolution)/encoderStepsPerRevolution;
-  Serial.print("Postion: ");Serial.println(encoderPos)
-  Serial.print("Anglel: ");Serial.println(angle);
-  encoderALast = encoderA;
+  Serial.println("");
   delay(1000);
 }
 
