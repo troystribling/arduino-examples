@@ -36,7 +36,7 @@ void loop() {
     encoderBLast = encoderB;
     angle = 360 * (encoderPos % encoderStepsPerRevolution)/encoderStepsPerRevolution;
     Serial.print("Postion: ");Serial.println(encoderPos);
-    Serial.print("Anglel: ");Serial.println(angle);
+    Serial.print("Angel: ");Serial.println(angle);
     encoderALast = encoderA;
   }
   Serial.println("");

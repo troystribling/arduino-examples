@@ -1,4 +1,4 @@
-// lcd_display_hellow_world.ino
+// lcd_display_hello_world.ino
 // test a 16x4 lcd display
 
 #include <LiquidCrystal440.h>
