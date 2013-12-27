@@ -6,7 +6,7 @@
 const int numRows = 2;
 const int numCols = 16;
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(12, 8, 7, 4, 3, 2);
 
 void setup() {
   lcd.begin(numCols, numRows);
