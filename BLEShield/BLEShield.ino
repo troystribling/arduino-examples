@@ -623,7 +623,7 @@ void setup()
   systemResetCallback();  // reset to default config
 
   // Enable serial debug
-  Serial.begin(57600);
+  Serial.begin(9600);
 
   // Default pins set to 9 and 8 for REQN and RDYN
   // Set your REQN and RDYN here before ble_begin() if you need
