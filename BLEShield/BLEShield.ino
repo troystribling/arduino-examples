@@ -12,8 +12,8 @@
 #include <Servo.h>
 #include <Wire.h>
 #include "BLEFirmata.h"
-#include <ble_shield.h>
-#include <services.h>
+#include "ble_shield.h"
+#include "services.h"
 /*
  * Firmata is a generic protocol for communicating with microcontrollers
  * from software on a host computer. It is intended to work with
