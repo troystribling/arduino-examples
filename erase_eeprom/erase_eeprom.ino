@@ -8,7 +8,7 @@ int addr = 0;
 void eraseEEPROM() {
   Serial.println("Start erase");
   for (int i = 0; i < NUMBER_BYTES; i++) {
-    EEPROM.write(addr + i, 0);
+    EEPROM.write(addr + i, 0x00);
   }
   Serial.println("End erase");
 }
