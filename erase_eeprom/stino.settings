@@ -3,7 +3,7 @@
     "baudrate": 4, 
     "board": 1, 
     "build_folder": "/Users/troy/Develop/arduino/builds", 
-    "full_compilation": true, 
+    "full_compilation": false, 
     "platform": 1, 
     "platform_name": "Arduino AVR Boards", 
     "serial_port": 5, 
