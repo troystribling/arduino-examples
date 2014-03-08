@@ -105,6 +105,7 @@ void setup(void)
     delay(500);
   }
 
+
   cc3000.printIPdotsRev(ip);
 
   // Optional: Do a ping test on the website
