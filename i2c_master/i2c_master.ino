@@ -2,7 +2,6 @@
 #include <Wire.h>
 
 const int address = 4;
-const char* message = "Hello-";
 
 // the address to be used by the communicating devices
 
@@ -14,25 +13,14 @@ void setup() {
 void loop() {
   delay(1000);
   writeMessage();
-  readResponse(1);
 }
 
 void writeMessage() {
+  char message = 'A';
   Serial.print("writeMessage: ");Serial.println(message);
   Wire.beginTransmission(address);
-  for (int i = 0; i < strlen(message); i++) {
-    Wire.write(message[i]);
-  }
+  Serial.println("beginTransmission");
+  Wire.write(message);
   Wire.endTransmission();
   Serial.println("message sent");
-}
-
-void readResponse(int8_t message_size) {
-  Serial.println("readResponse");
-  Wire.requestFrom(address, message_size);
-  while(Wire.available()) {
-    char c = Wire.read();
-    Serial.print("received: ");Serial.println(c, HEX);
-  }
-  Serial.println("finished");
 }
