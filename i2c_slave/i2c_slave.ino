@@ -10,6 +10,7 @@ void setup() {
   Serial.println("Slave Starting");
   Wire.begin(address);
   Wire.onReceive(receiveEvent);
+  Wire.onRequest(requestEvent);
 }
 
 void loop() {
@@ -21,5 +22,11 @@ void receiveEvent(int howMany) {
     char c = Wire.read();
     Serial.write(c);
   }
+  Serial.println("");Serial.println("finished");
+}
+
+void requestEvent() {
+  Serial.println("Master Request Received");
+  Wire.write(0x01);
   Serial.println("finished");
 }
