@@ -32,7 +32,7 @@ void readResponse(int8_t message_size) {
   Wire.requestFrom(address, message_size);
   while(Wire.available()) {
     char c = Wire.read();
-    Serial.print("received: ");Serial.println(c, HEX);
+    Serial.print("Slave Response Received: ");Serial.println(c, HEX);
   }
   Serial.println("finished");
 }
