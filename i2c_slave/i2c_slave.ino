@@ -27,6 +27,6 @@ void receiveEvent(int howMany) {
 
 void requestEvent() {
   Serial.println("Master Request Received");
-  Wire.write(0xff);
+  Wire.write("good bye");
   Serial.println("finished");
 }

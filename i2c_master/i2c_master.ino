@@ -14,7 +14,7 @@ void setup() {
 void loop() {
   delay(1000);
   writeMessage();
-  readResponse(1);
+  readResponse(8);
 }
 
 void writeMessage() {
@@ -32,7 +32,7 @@ void readResponse(int8_t message_size) {
   Wire.requestFrom(address, message_size);
   while(Wire.available()) {
     char c = Wire.read();
-    Serial.print("Slave Response Received: ");Serial.println(c, HEX);
+    Serial.print(c);
   }
-  Serial.println("finished");
+  Serial.println("");Serial.println("finished");
 }
